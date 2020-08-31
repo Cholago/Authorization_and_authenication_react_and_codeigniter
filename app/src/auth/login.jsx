@@ -3,23 +3,24 @@ import { Row, Form, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { connect } from 'react-redux'
+import { LoginApi } from '../api'
 
 const schema = Yup.object({
     email: Yup.string().required().email('Enter a valid email'),
     password: Yup.string().required().min(6, 'Enter atleast 6 characters!'),
 });
-const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-function login() {
+function login({ dispatch }) {
     return (
         <div className="login-page-box">
             <h1>Login</h1>
             <Formik
                 validationSchema={schema}
                 onSubmit={
-                    async values => {
-                        await sleep(3000);
-                        alert(JSON.stringify(values, null, 2));
+                    (values) => {
+                        const data = JSON.stringify(values);
+                        LoginApi(values);
                     }
                 }
 
@@ -77,12 +78,7 @@ function login() {
                             </Row>
                             <Row className="justify-content-md-center">
                                 <Col md="auto">
-                                    <button type="submit" class="btn-auth-page" disabled>Login</button>
-                                </Col>
-                            </Row>
-                            <Row className="justify-content-md-center">
-                                <Col md="auto">
-                                    {isSubmitting && <p>chhhdd</p>}
+                                    <button type="submit" className="btn-auth-page" disabled={isSubmitting}>Login</button>
                                 </Col>
                             </Row>
 
@@ -92,4 +88,4 @@ function login() {
         </div>
     );
 }
-export default login;
+export default connect()(login);

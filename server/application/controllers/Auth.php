@@ -17,47 +17,11 @@ class Auth extends CI_Controller {
     function login(){
         $email = $this->input->post('email');
 	    $password = $this->input->post('password');
-        if (!empty($email) && !empty($password)) {
-            $query = $this->db->get_where('users', array('user_email' => $email));
-			if ($query->num_rows() > 0) {
-                $row = $query->row();
-				if(md5($password) == $row->user_password) //password correct
-				{
-                    //login session
-                    $this->session->set_userdata('user_login', '1');
-                    $this->session->set_userdata('user_id', $row->user_id);
-                    $this->session->set_userdata('type', 'user');
-                    //responce data
-                    $response["error"] = FALSE;
-                    $response["user_id"] = $row->user_id;
-                    $response["user_name"] = $row->user_name;
-                    $response["user_email"] = $row->user_email;
-                    $response["user_status"] = $row->user_status;
-                    $response["tocken"] = $row->token_code;
+        
+        $response["error"] = TRUE;
+        $response["error_msg"] = "Empty post parameters";
 
-                }
-				else
-				{
-					//wrong password
-					$response["error"] = TRUE;
-		            $response["error_msg"] = "Wrong password. Please try again!";
-
-				}
-            }
-            else{
-                // no account found
-				$response["error"] = TRUE;
-		        $response["error_msg"] = "Account not found";
-            }
-
-        }
-        else{
-            // error no post parameters
-            $response["error"] = TRUE;
-            $response["error_msg"] = "Empty post parameters";
-
-        }
-        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Origin: *");
         header('Content-Type: application/json');
         echo json_encode($response);
     }
@@ -72,7 +36,8 @@ class Auth extends CI_Controller {
         //real
         $name = $this->input->post('name');
 	    $email = $this->input->post('email');
-	    $password = $this->input->post('password');
+        $password = $this->input->post('password');
+        $valuess = $this->input->post();
         //check if email already exist
         if (!empty($name) && !empty($email) && !empty($password)){
             $query = $this->db->get_where('users', array('user_email' => $email));
@@ -105,6 +70,7 @@ class Auth extends CI_Controller {
         else{
             // error no post parameters
             $response["error"] = TRUE;
+            $response["error"] = $valuess;
             $response["error_msg"] = "Empty post parameters";
 
         }
