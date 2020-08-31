@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
             $query = $this->db->get_where('users', array('user_email' => $email));
 			if ($query->num_rows() > 0) {
                 $row = $query->row();
-				if(md5($password) == $$row->user_password) //password correct
+				if(md5($password) == $row->user_password) //password correct
 				{
                     //login session
                     $this->session->set_userdata('user_login', '1');
@@ -63,6 +63,13 @@ class Auth extends CI_Controller {
     }
 
     function signup(){
+        //test
+        /*
+        $name = $this->input->get('name');
+	    $email = $this->input->get('email');
+        $password = $this->input->get('password');
+        */
+        //real
         $name = $this->input->post('name');
 	    $email = $this->input->post('email');
 	    $password = $this->input->post('password');
@@ -106,4 +113,15 @@ class Auth extends CI_Controller {
         echo json_encode($response);
         
     }
+
+    function logout()
+	{
+        //log out
+        $response["logout"] = "true";
+        $this->session->sess_destroy();  // destroy all sessions and refresh 
+        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header('Content-Type: application/json');
+        echo json_encode($response);
+		
+	}  
 }
