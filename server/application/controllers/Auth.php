@@ -53,7 +53,8 @@ class Auth extends CI_Controller {
             $response["error"] = TRUE;
             $response["error_msg"] = "Empty post parameters";
         }
-        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
         header("Access-Control-Allow-Headers: *");
         header('Content-Type: application/json');
@@ -105,7 +106,8 @@ class Auth extends CI_Controller {
             $response["error_msg"] = "Empty post parameters!";
 
         }
-        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
         header("Access-Control-Allow-Headers: *");
         header('Content-Type: application/json');
@@ -124,7 +126,7 @@ class Auth extends CI_Controller {
         else{
             $response["is_logged"] = FALSE;
         }
-        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Origin: http://localhost:3000");
         header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
         header("Access-Control-Allow-Headers: *");

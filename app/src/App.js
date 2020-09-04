@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from './auth/login'
 import Signup from './auth/signup'
-import Home from './containers/home'
+import Main from './containers/main'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <React.Fragment>
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Main} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route render={() => <h1 className="text-center">Page not found</h1>} />

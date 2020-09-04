@@ -1,6 +1,7 @@
 import axios from "axios"
 import * as ApiUrl from './endpoints'
 import * as ActionCreator from '../actions'
+import PrepareFormData from './prepareFormData'
 
 export const LoginApi = (dispatch, data) => {
     //axios send data to the server
@@ -8,7 +9,7 @@ export const LoginApi = (dispatch, data) => {
     dispatch(ActionCreator.setLoginDisabled(true));
     axios.post(ApiUrl.LOGIN_URL, PrepareFormData(data), { withCredentials: true }).then(
         res => {
-            console.log('Actual data data', res.data);
+            //console.log('Actual data data', res.data);
             const data = res.data;
             dispatch(ActionCreator.setLoginBtnText('Login'));
             dispatch(ActionCreator.setLoginDisabled(false));
@@ -21,7 +22,7 @@ export const LoginApi = (dispatch, data) => {
 
             }
             else {
-                console.log('User Logged in successfully');
+                //console.log('User Logged in successfully');
                 localStorage.clear();
                 localStorage.setItem('user_id', data.user_id);
                 localStorage.setItem('user_name', data.user_name);
@@ -49,7 +50,7 @@ export const SignUpApi = (dispatch, data) => {
     //axios send data to the server
     axios.post(ApiUrl.SIGNUP_URL, PrepareFormData(data), { withCredentials: true }).then(
         res => {
-            console.log('Actual data data', res.data);
+            //console.log('Actual data data', res.data);
             const data = res.data;
             dispatch(ActionCreator.setSignupBtnText('Signup'));
             dispatch(ActionCreator.setSignupDisabled(true));
@@ -71,12 +72,3 @@ export const SignUpApi = (dispatch, data) => {
     ).catch(error => console.log(error));
 }
 
-const PrepareFormData = data => {
-    //convert data object to form data
-    var formData = new FormData();
-    for (var key of Object.keys(data)) {
-        formData.append(key, data[key]);
-        //console.log(key + " -> " + data[key])
-    }
-    return formData;
-}

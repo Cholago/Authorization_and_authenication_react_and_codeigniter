@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Form, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux'
@@ -22,9 +22,13 @@ const schema = Yup.object({
 
 const mapStateToProps = state => ({
     pageState: state.AuthPageState,
+    userInfo: state.UserInfo
 })
 
-function Signup({ pageState, dispatch }) {
+function Signup({ pageState, userInfo, dispatch }) {
+    if (userInfo.userLogged) {
+        return <Redirect to='/' />
+    }
     return (
         <div className="login-page-box">
             <h1>Create account</h1>

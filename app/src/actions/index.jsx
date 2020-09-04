@@ -76,24 +76,33 @@ export const setLoggedInUserData = (user) => (
     }
 );
 
+//sync user state
 export const syncUserLoginState = () => {
     return (dispatch) => {
         return axios.get(ApiUrl.IS_LOGGED_IN_URL, { withCredentials: true })
             .then(res => {
-                console.log(res.data);
+                //console.log('Is logged', res.data);
+                const data = res.data;
+                if (data.is_logged) {
+                    localStorage.clear();
+                    localStorage.setItem('user_id', data.user_id);
+                    localStorage.setItem('user_name', data.user_name);
+                    localStorage.setItem('user_email', data.user_email);
+                    localStorage.setItem('token_id', data.token_code);
+                    //redirect to home page
+                    const userInfo = {
+                        userLogged: true,
+                        userId: data.user_id,
+                        userName: data.user_email,
+                        teckenId: data.token_code,
+                    }
+                    dispatch(setLoggedInUserData(userInfo));
+
+                }
                 //dispatch(fetchPosts(res.data))
             })
             .catch(error => console.log(error));
     };
 };
 
-const PrepareFormData = data => {
-    //convert data object to form data
-    var formData = new FormData();
-    for (var key of Object.keys(data)) {
-        formData.append(key, data[key]);
-        //console.log(key + " -> " + data[key])
-    }
-    return formData;
-}
 

@@ -17,8 +17,8 @@ const mapStateToProps = state => ({
 })
 
 function login({ pageState, userInfo, dispatch }) {
-    console.log('Page state ', pageState)
-    console.log('User info ', userInfo)
+    //console.log('Page state ', pageState)
+    //console.log('User info ', userInfo)
     if (userInfo.userLogged) {
         return <Redirect to='/' />
     }
