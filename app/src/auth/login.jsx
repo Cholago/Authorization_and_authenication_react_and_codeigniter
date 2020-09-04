@@ -19,7 +19,7 @@ function login({ dispatch }) {
                 validationSchema={schema}
                 onSubmit={
                     (values) => {
-                        //const data = JSON.stringify(values);
+                        const data = JSON.stringify(values);
                         LoginApi(values);
                     }
                 }

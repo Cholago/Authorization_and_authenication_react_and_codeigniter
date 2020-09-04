@@ -16,12 +16,21 @@ class Auth extends CI_Controller {
 
     function login(){
         $email = $this->input->post('email');
-	    $password = $this->input->post('password');
-        
-        $response["error"] = TRUE;
-        $response["error_msg"] = "Empty post parameters";
+        $password = $this->input->post('password');
 
+        if (!empty($email) && !empty($password)){
+            $response["error"] = False;
+            $response["msg"] = "Account created successfully you can now login";
+
+        }
+        else{
+            $response["error"] = TRUE;
+            $response["error_msg"] = "Empty post parameters $email and $password";
+        }
+        
         header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
+        header("Access-Control-Allow-Headers: *");
         header('Content-Type: application/json');
         echo json_encode($response);
     }
