@@ -11,7 +11,7 @@ function main({ userInfo, dispatch }) {
         return <Redirect to='/login' />
     }
     return (
-        <div>
+        <div className="container">
             <h1 className="text-center">Logged in</h1>
         </div>
     );
