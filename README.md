@@ -1,2 +1,8 @@
-## My home application rebuilt it using react
+## Athorization and Authenication System
 #### Version: 1.0.1
+
+#### Web technologies used
+1. React js Frontend
+    1. Redux
+    2. Axios
+2. Codeigniter  Backend
