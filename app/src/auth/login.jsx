@@ -20,6 +20,7 @@ function login({ pageState, dispatch }) {
     return (
         <div className="login-page-box">
             <h1>Login</h1>
+            {pageState.loginError && <div className="alert alert-warning" role="alert">{pageState.loginError}</div>}
             <Formik
                 validationSchema={schema}
                 onSubmit={

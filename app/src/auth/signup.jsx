@@ -3,7 +3,6 @@ import { Row, Form, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-
 import { connect } from 'react-redux'
 import { SignUpApi } from '../api'
 
@@ -21,15 +20,22 @@ const schema = Yup.object({
 
 });
 
-function Signup() {
+const mapStateToProps = state => ({
+    pageState: state.AuthPageState,
+})
+
+function Signup({ pageState, dispatch }) {
     return (
         <div className="login-page-box">
             <h1>Create account</h1>
+            {pageState.signupError && <div className="alert alert-warning" role="alert">{pageState.signupError}</div>}
+            {pageState.signupSuccess && <div className="alert alert-success" role="alert">{pageState.signupSuccess}</div>}
             <Formik
                 validationSchema={schema}
                 onSubmit={
-                    (values) => {
-                        SignUpApi(values);
+                    (values, { resetForm }) => {
+                        SignUpApi(dispatch, values)
+                        console.log('Done account')
                     }
                 }
                 initialValues={{
@@ -118,7 +124,7 @@ function Signup() {
                             </Row>
                             <Row className="justify-content-md-center">
                                 <Col md="auto">
-                                    <button type="submit" class="btn-auth-page">Signup</button>
+                                    <button type="submit" class="btn-auth-page" disabled={pageState.signupDisabled}>{pageState.signupBtnText}</button>
                                 </Col>
                             </Row>
 
@@ -128,4 +134,4 @@ function Signup() {
         </div>
     );
 }
-export default Signup;
+export default connect(mapStateToProps)(Signup);

@@ -1,11 +1,12 @@
 import * as Actions from '../actions/types';
 let defaultState = {
     loginBtnText: "Login",
-    signUpBtnText: "Signup",
+    signupBtnText: "Signup",
     loginDisabled: false,
     signuDisabled: false,
     loginError: false,
     signupError: false,
+    signupSuccess: false,
 }
 
 const AuthPageState = (state = defaultState, action) => {
@@ -16,23 +17,27 @@ const AuthPageState = (state = defaultState, action) => {
             })
         case Actions.SET_SIGNUP_BUTTON_TEXT:
             return Object.assign({}, state, {
-                signUpBtnText: action.payload.value
+                signupBtnText: action.payload.value
             })
         case Actions.SET_LOGIN_ERROR:
             return Object.assign({}, state, {
-                loginDisabled: action.payload.value
+                loginError: action.payload.value
             })
         case Actions.SET_SIGNUP_ERROR:
             return Object.assign({}, state, {
-                signuDisabled: action.payload.value
+                signupError: action.payload.value
             })
         case Actions.SET_LOGIN_DISABLED:
             return Object.assign({}, state, {
-                loginError: action.payload.value
+                loginDisabled: action.payload.value
             })
         case Actions.SET_SIGNUP_DISABLED:
             return Object.assign({}, state, {
-                signupError: action.payload.value
+                signuDisabled: action.payload.value
+            })
+        case Actions.SET_SIGNUP_SUCCESS:
+            return Object.assign({}, state, {
+                signupSuccess: action.payload.value
             })
         default:
             return state

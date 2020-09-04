@@ -55,3 +55,11 @@ export const setSignupDisabled = (value) => (
     }
 );
 
+export const setSignupSuccess = (value) => (
+    {
+        type: Actions.SET_SIGNUP_SUCCESS,
+        payload: {
+            value
+        }
+    }
+);

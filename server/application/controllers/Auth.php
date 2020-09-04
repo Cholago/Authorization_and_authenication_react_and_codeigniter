@@ -19,12 +19,12 @@ class Auth extends CI_Controller {
         $password = $this->input->post('password');
 
         if (!empty($email) && !empty($password)){
-            $response["error"] = False;
-            $response["msg"] = "Account created successfully you can now login";
+            $response["error"] = TRUE;
+            $response["error_msg"] = "Account created successfully you can now login";
         }
         else{
             $response["error"] = TRUE;
-            $response["error_msg"] = "Empty post parameters $email and $password";
+            $response["error_msg"] = "Empty post parameters";
         }
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
@@ -44,7 +44,6 @@ class Auth extends CI_Controller {
         $name = $this->input->post('name');
 	    $email = $this->input->post('email');
         $password = $this->input->post('password');
-        $valuess = $this->input->post();
         //check if email already exist
         if (!empty($name) && !empty($email) && !empty($password)){
             $query = $this->db->get_where('users', array('user_email' => $email));
@@ -63,12 +62,11 @@ class Auth extends CI_Controller {
                 );
                 $this->db->insert('users', $data);
                 $response["error"] = False;
-                $response["msg"] = "Account created successfully you can now login dsds";
-
+                $response["msg"] = "Account created successfully you can now login";
 
             }
             else{
-                // no account found
+                //account alreay exist
 				$response["error"] = TRUE;
 		        $response["error_msg"] = "User already exist please use a different email";
             }
@@ -77,11 +75,12 @@ class Auth extends CI_Controller {
         else{
             // error no post parameters
             $response["error"] = TRUE;
-            $response["error"] = $valuess;
             $response["error_msg"] = "Empty post parameters";
 
         }
-        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
+        header("Access-Control-Allow-Headers: *");
         header('Content-Type: application/json');
         echo json_encode($response);
         
