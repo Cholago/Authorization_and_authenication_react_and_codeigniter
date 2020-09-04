@@ -10,8 +10,8 @@ function App() {
     <React.Fragment>
       <Router>
         <Switch>
-          <Route exact path="/" component={Main} />
           <Route path="/main" component={IsLoggedIn} />
+          <Route exact path="/" component={Main} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route render={() => <h1 className="text-center">Page not found</h1>} />

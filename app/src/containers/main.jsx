@@ -1,19 +1,18 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
+import NavigationBar from './navigationBar'
+import { Container } from 'react-bootstrap'
 
 const mapStateToProps = state => ({
     userInfo: state.UserInfo
 })
 
 function main({ userInfo, dispatch }) {
-    if (!userInfo.userLogged) {
-        return <Redirect to='/login' />
-    }
     return (
-        <div className="container">
+        <Container>
+            <NavigationBar />
             <h1 className="text-center">Logged in</h1>
-        </div>
+        </Container>
     );
 }
 export default connect(mapStateToProps)(main);
