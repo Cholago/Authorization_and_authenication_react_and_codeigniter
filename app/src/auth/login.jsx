@@ -19,7 +19,6 @@ function login({ dispatch }) {
                 validationSchema={schema}
                 onSubmit={
                     (values) => {
-                        const data = JSON.stringify(values);
                         LoginApi(values);
                     }
                 }
@@ -78,7 +77,7 @@ function login({ dispatch }) {
                             </Row>
                             <Row className="justify-content-md-center">
                                 <Col md="auto">
-                                    <button type="submit" className="btn-auth-page" disabled={isSubmitting}>Login</button>
+                                    <button type="submit" className="btn-auth-page">Login</button>
                                 </Col>
                             </Row>
 
