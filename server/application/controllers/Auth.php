@@ -20,7 +20,7 @@ class Auth extends CI_Controller {
 
         if (!empty($email) && !empty($password)){
             $query = $this->db->get_where('users', array('user_email' => $email));
-			if (!$query->num_rows() > 0) {
+			if ($query->num_rows() > 0) {
                 $row = $query->row();
                 if(md5($password) == $row->user_password)
 				{

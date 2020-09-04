@@ -63,3 +63,13 @@ export const setSignupSuccess = (value) => (
         }
     }
 );
+
+//Set logged in user information
+export const setLoggedInUserData = (user) => (
+    {
+        type: Actions.SET_USER,
+        payload: {
+            user
+        }
+    }
+);

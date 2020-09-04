@@ -26,7 +26,16 @@ export const LoginApi = (dispatch, data) => {
                 localStorage.setItem('user_id', data.user_id);
                 localStorage.setItem('user_name', data.user_name);
                 localStorage.setItem('user_email', data.user_email);
-                localStorage.setItem('token_code', data.token_code);
+                localStorage.setItem('token_id', data.token_code);
+                //redirect to home page
+                const userInfo = {
+                    userLogged: true,
+                    userId: data.user_id,
+                    userName: data.user_email,
+                    teckenId: data.token_code,
+                }
+                dispatch(ActionCreator.setLoggedInUserData(userInfo));
+
             }
         }
     ).catch(
