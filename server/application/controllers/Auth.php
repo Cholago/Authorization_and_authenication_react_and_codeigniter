@@ -19,8 +19,35 @@ class Auth extends CI_Controller {
         $password = $this->input->post('password');
 
         if (!empty($email) && !empty($password)){
-            $response["error"] = TRUE;
-            $response["error_msg"] = "Account created successfully you can now login";
+            $query = $this->db->get_where('users', array('user_email' => $email));
+			if (!$query->num_rows() > 0) {
+                $row = $query->row();
+                if(md5($password) == $row->user_password)
+				{
+                    $this->session->set_userdata('user_login', '1');
+			        $this->session->set_userdata('user_id', $row->user_id);
+                    $this->session->set_userdata('user_name', $row->user_name);
+                    $this->session->set_userdata('user_email', $row->user_email);
+			        $this->session->set_userdata('token_code', $row->token_code);
+			        $this->session->set_userdata('account_type', 'user');
+                    $response["error"] = False;
+                    $response["user_id"] = $row->user_id;
+                    $response["user_name"] = $row->user_name;
+                    $response["user_email"] = $row->user_email;
+                    $response["token_code"] = $row->token_code;
+                }
+                else{
+                    $response["error"] = TRUE;
+                    $response["error_msg"] = "Please enter the correct password!";
+
+                }
+
+            }
+            else{
+                $response["error"] = TRUE;
+                $response["error_msg"] = "No account found with such details!";
+            }
+
         }
         else{
             $response["error"] = TRUE;
@@ -62,20 +89,20 @@ class Auth extends CI_Controller {
                 );
                 $this->db->insert('users', $data);
                 $response["error"] = False;
-                $response["msg"] = "Account created successfully you can now login";
+                $response["msg"] = "Account created successfully you can now login!";
 
             }
             else{
                 //account alreay exist
 				$response["error"] = TRUE;
-		        $response["error_msg"] = "User already exist please use a different email";
+		        $response["error_msg"] = "User already exist please use a different email!";
             }
 
         }
         else{
             // error no post parameters
             $response["error"] = TRUE;
-            $response["error_msg"] = "Empty post parameters";
+            $response["error_msg"] = "Empty post parameters!";
 
         }
         header("Access-Control-Allow-Origin: *");

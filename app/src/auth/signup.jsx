@@ -35,7 +35,6 @@ function Signup({ pageState, dispatch }) {
                 onSubmit={
                     (values, { resetForm }) => {
                         SignUpApi(dispatch, values)
-                        console.log('Done account')
                     }
                 }
                 initialValues={{
