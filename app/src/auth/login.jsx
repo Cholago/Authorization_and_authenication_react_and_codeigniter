@@ -11,7 +11,12 @@ const schema = Yup.object({
     password: Yup.string().required().min(6, 'Enter atleast 6 characters!'),
 });
 
-function login({ dispatch }) {
+const mapStateToProps = state => ({
+    pageState: state.AuthPageState,
+})
+
+function login({ pageState, dispatch }) {
+    console.log('Page state ', pageState)
     return (
         <div className="login-page-box">
             <h1>Login</h1>
@@ -19,7 +24,7 @@ function login({ dispatch }) {
                 validationSchema={schema}
                 onSubmit={
                     (values) => {
-                        LoginApi(values);
+                        LoginApi(dispatch, values);
                     }
                 }
 
@@ -77,7 +82,7 @@ function login({ dispatch }) {
                             </Row>
                             <Row className="justify-content-md-center">
                                 <Col md="auto">
-                                    <button type="submit" className="btn-auth-page">Login</button>
+                                    <button type="submit" className="btn-auth-page" disabled={pageState.loginDisabled}>{pageState.loginBtnText}</button>
                                 </Col>
                             </Row>
 
@@ -87,4 +92,4 @@ function login({ dispatch }) {
         </div>
     );
 }
-export default connect()(login);
+export default connect(mapStateToProps)(login);

@@ -1,7 +1,7 @@
 import axios from "axios"
 import * as ApiUrl from './endpoints'
 
-export const LoginApi = (data) => {
+export const LoginApi = (dispatch, data) => {
     //axios send data to the server
     axios.post(ApiUrl.LOGIN_URL, PrepareFormData(data)).then(res => {
         console.log('Actual data data', res.data)

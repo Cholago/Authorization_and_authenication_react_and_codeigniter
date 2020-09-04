@@ -11,6 +11,12 @@ import Reducer from './reducers';
 
 const store = createStore(Reducer, applyMiddleware(thunk));
 
+/*
+var obj3 = { c: 30 };
+var new_obj = Object.assign({}, obj3, { a: 100, c: 200 });
+console.log(new_obj);
+*/
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

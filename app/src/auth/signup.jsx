@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+import { connect } from 'react-redux'
+import { SignUpApi } from '../api'
+
 const schema = Yup.object({
     name: Yup.string().required().min(2, 'Enter atleast 2 characters!'),
     email: Yup.string().required().email('Enter a valid email!'),
@@ -24,7 +27,11 @@ function Signup() {
             <h1>Create account</h1>
             <Formik
                 validationSchema={schema}
-                onSubmit={console.log}
+                onSubmit={
+                    (values) => {
+                        SignUpApi(values);
+                    }
+                }
                 initialValues={{
                     name: '',
                     email: '',
