@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import User from './user';
+import UserInfo from './user';
 import Posts from './posts'
 import AuthPageState from './authState'
 
 export default combineReducers({
-    User, Posts, AuthPageState
+    UserInfo, Posts, AuthPageState
 });

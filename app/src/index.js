@@ -8,9 +8,11 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import Reducer from './reducers';
+import { syncUserLoginState } from './actions';
 
 const store = createStore(Reducer, applyMiddleware(thunk));
 
+store.dispatch(syncUserLoginState());
 /*
 var obj3 = { c: 30 };
 var new_obj = Object.assign({}, obj3, { a: 100, c: 200 });

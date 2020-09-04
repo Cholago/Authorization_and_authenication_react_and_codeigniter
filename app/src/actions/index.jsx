@@ -1,4 +1,6 @@
+import axios from "axios"
 import * as Actions from '../actions/types';
+import * as ApiUrl from '../api/endpoints'
 
 //Auth pages state
 export const setLoginBtnText = (value) => (
@@ -73,3 +75,25 @@ export const setLoggedInUserData = (user) => (
         }
     }
 );
+
+export const syncUserLoginState = () => {
+    return (dispatch) => {
+        return axios.get(ApiUrl.IS_LOGGED_IN_URL, { withCredentials: true })
+            .then(res => {
+                console.log(res.data);
+                //dispatch(fetchPosts(res.data))
+            })
+            .catch(error => console.log(error));
+    };
+};
+
+const PrepareFormData = data => {
+    //convert data object to form data
+    var formData = new FormData();
+    for (var key of Object.keys(data)) {
+        formData.append(key, data[key]);
+        //console.log(key + " -> " + data[key])
+    }
+    return formData;
+}
+

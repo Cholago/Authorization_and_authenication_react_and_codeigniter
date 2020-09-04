@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
                 $row = $query->row();
                 if(md5($password) == $row->user_password)
 				{
-                    $this->session->set_userdata('user_login', '1');
+                    $this->session->set_userdata('user_login', 1);
 			        $this->session->set_userdata('user_id', $row->user_id);
                     $this->session->set_userdata('user_name', $row->user_name);
                     $this->session->set_userdata('user_email', $row->user_email);
@@ -111,6 +111,26 @@ class Auth extends CI_Controller {
         header('Content-Type: application/json');
         echo json_encode($response);
         
+    }
+
+    function isLoggedIn(){
+        if($this->session->userdata('user_login') == 1){
+            $response["is_logged"] = TRUE;
+            $response["user_id"] = $this->session->userdata('user_id');
+            $response["user_name"] = $this->session->userdata('user_name');
+            $response["user_email"] = $this->session->userdata('user_email');
+            $response["token_code"] = $this->session->userdata('token_code');
+        }
+        else{
+            $response["is_logged"] = FALSE;
+        }
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Credentials: true");
+        header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
+        header("Access-Control-Allow-Headers: *");
+        header('Content-Type: application/json');
+        echo json_encode($response);
+
     }
 
     function logout()

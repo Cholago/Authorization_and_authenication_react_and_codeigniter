@@ -6,7 +6,7 @@ export const LoginApi = (dispatch, data) => {
     //axios send data to the server
     dispatch(ActionCreator.setLoginBtnText('Loading ..'));
     dispatch(ActionCreator.setLoginDisabled(true));
-    axios.post(ApiUrl.LOGIN_URL, PrepareFormData(data)).then(
+    axios.post(ApiUrl.LOGIN_URL, PrepareFormData(data), { withCredentials: true }).then(
         res => {
             console.log('Actual data data', res.data);
             const data = res.data;
@@ -47,7 +47,7 @@ export const SignUpApi = (dispatch, data) => {
     dispatch(ActionCreator.setSignupBtnText('Loading'));
     dispatch(ActionCreator.setSignupDisabled(true));
     //axios send data to the server
-    axios.post(ApiUrl.SIGNUP_URL, PrepareFormData(data)).then(
+    axios.post(ApiUrl.SIGNUP_URL, PrepareFormData(data), { withCredentials: true }).then(
         res => {
             console.log('Actual data data', res.data);
             const data = res.data;
