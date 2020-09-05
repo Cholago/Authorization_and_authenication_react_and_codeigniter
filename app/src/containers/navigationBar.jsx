@@ -14,7 +14,7 @@ const NavigationBar = () => {
                 <div className="nav-bar">
                     <div className="nav-bar-links">
                         <ul>
-                            <li className="nav-bar-link" style={{ i: ".6s" }}>
+                            <li className="nav-bar-link active" style={{ i: ".6s" }}>
                                 <a href="#">Device</a>
                             </li>
                             <li className="nav-bar-link" style={{ i: ".6s" }}>

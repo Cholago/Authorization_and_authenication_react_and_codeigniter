@@ -12,12 +12,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 body{
-    margin: 0 !important; 
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
     background-color: #e4e3e3 !important;
     background-size: cover;
     background-position: top center;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 ul{
@@ -29,11 +29,11 @@ a{
 }
 
 header{
-    position: sticky !important;
-    top: 0px !important;
-    background-color: var(--primary-color) !important;
-    width: 100% !important;
-    z-index: 1000 !important;
+    position: sticky;
+    top: 0px;
+    background-color: var(--primary-color);
+    width: 100%;
+    z-index: 1000;
 }
 
 .nav-bar-container{
@@ -102,23 +102,25 @@ header{
 }
 
 .nav-bar-links > ul{
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
 
+
 .nav-bar-link{
-    position: relative !important;
+    position: relative;
 }
 
 .nav-bar-link > a{
     line-height: 3rem;
-    color: var(--white-color) !important;
+    color: var(--white-color);
     padding: 0 .8rem;
     letter-spacing: 1px;
     font-size: .95rem;
-    display: flex !important;
-    align-items: center !important;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     transition: .5s;
 }
@@ -128,7 +130,12 @@ header{
 }
 
 .nav-bar-link:hover > a{
+    color: var(--white-color);
     transform: scale(1.3);
+}
+
+.nav-bar-link.active{
+    
 }
 
 .nav-dropdown-menu{
@@ -312,7 +319,7 @@ header{
     .nav-bar-links{
         flex: initial;
         width: 80%;
-        justify-content: center !important;
+        justify-content: center;
     }
 
     .nav-bar-links > ul{
