@@ -1,7 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 
-const NavigationBar = () => {
+const mapStateToProps = state => ({
+    userInfo: state.UserInfo
+})
+
+const NavigationBar = ({ userInfo }) => {
     return (
         <header>
             <div className="nav-bar-container">
@@ -14,40 +19,37 @@ const NavigationBar = () => {
                 <div className="nav-bar">
                     <div className="nav-bar-links">
                         <ul>
-                            <li className="nav-bar-link active" style={{ i: ".6s" }}>
-                                <a href="#">Device</a>
+                            <li className="nav-bar-link active" style={{ '--i': ".6s" }}>
+                                <Link to="/device">Device</Link>
                             </li>
-                            <li className="nav-bar-link" style={{ i: ".6s" }}>
-                                <a href="#">User</a>
+                            <li className="nav-bar-link" style={{ '--i': ".6s" }}>
+                                <Link to="/users">Users</Link>
                             </li>
-                            <li className="nav-bar-link" style={{ i: ".6s" }}>
-                                <a href="#">Profile</a>
+                            <li className="nav-bar-link" style={{ '--i': ".6s" }}>
+                                <Link to="/profile">Profile</Link>
                             </li>
-                            <li className="nav-bar-link" style={{ i: ".6s" }}>
-                                <a href="#">History</a>
+                            <li className="nav-bar-link" style={{ '--i': ".6s" }}>
+                                <Link to="/history">History</Link>
                                 <div className="nav-dropdown-menu">
                                     <ul>
                                         <li className="nav-dropdown-link">
-                                            <a href="#">Today</a>
+                                            <Link to="/profile">Log</Link>
                                         </li>
                                         <li className="nav-dropdown-link">
-                                            <a href="#">Yesterday</a>
-                                        </li>
-                                        <li className="nav-dropdown-link">
-                                            <a href="#">Yellow</a>
+                                            <Link to="/images">Images</Link>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            <li className="nav-bar-link" style={{ i: "1.35s" }}>
-                                <a href="#">About</a>
+                            <li className="nav-bar-link" style={{ '--i': "1.35s" }}>
+                                <Link to="/about">About</Link>
                             </li>
                         </ul>
                     </div>
 
-                    <div className="nav-bar-btn" style={{ i: "1.8s" }} >
-                        <a href="#" className="nav-btn transparent">Log in</a>
-                        <a href="#" className="nav-btn solid">Sign up</a>
+                    <div className="nav-bar-btn" style={{ '--i': "1.8s" }} >
+                        <Link to="/profile" className="nav-btn transparent">{userInfo.userName}</Link>
+                        <button className="nav-btn solid">Sign out</button>
                     </div>
                 </div>
 
@@ -60,4 +62,4 @@ const NavigationBar = () => {
         </header>
     );
 }
-export default connect()(NavigationBar);
+export default connect(mapStateToProps)(NavigationBar);

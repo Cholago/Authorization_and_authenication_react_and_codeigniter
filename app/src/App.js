@@ -4,11 +4,13 @@ import Signup from './auth/signup'
 import Main from './containers/main'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import isLoggedIn from './auth/isLoggedIn';
+import NavigationBar from './containers/navigationBar'
 
 function App() {
   return (
     <React.Fragment>
       <Router>
+        <NavigationBar />
         <Switch>
           <Route exact path="/" component={isLoggedIn} />
           <Route path="/home" component={Main} />

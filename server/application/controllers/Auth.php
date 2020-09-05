@@ -53,7 +53,7 @@ class Auth extends CI_Controller {
             $response["error"] = TRUE;
             $response["error_msg"] = "Empty post parameters";
         }
-        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Origin: http://192.168.43.62:3000");
         header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
         header("Access-Control-Allow-Headers: *");
@@ -106,7 +106,7 @@ class Auth extends CI_Controller {
             $response["error_msg"] = "Empty post parameters!";
 
         }
-        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Origin: http://192.168.43.62:3000");
         header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
         header("Access-Control-Allow-Headers: *");
@@ -126,7 +126,7 @@ class Auth extends CI_Controller {
         else{
             $response["is_logged"] = FALSE;
         }
-        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Origin: http://192.168.43.62:3000");
         header("Access-Control-Allow-Credentials: true");
         header("Access-Control-Allow-Methods: PUT, POST, OPTIONS"); 
         header("Access-Control-Allow-Headers: *");
@@ -140,7 +140,7 @@ class Auth extends CI_Controller {
         //log out
         $response["logout"] = "true";
         $this->session->sess_destroy();  // destroy all sessions and refresh 
-        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Origin: http://192.168.43.62:3000");
         header('Content-Type: application/json');
         echo json_encode($response);
 		

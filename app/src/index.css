@@ -92,11 +92,13 @@ header{
 }
 
 .nav-btn.solid, .nav-btn.transparent:hover{
+    outline: none;
     background-color: var(--white-color);
     color: var(--primary-color);
 }
 
 .nav-btn.transparent, .nav-btn.solid:hover{
+    outline: none;
     background-color: transparent;
     color: var(--white-color);
 }
@@ -135,7 +137,8 @@ header{
 }
 
 .nav-bar-link.active{
-    
+    padding: 0 0px;
+    border-bottom: 1px solid var(--white-color);
 }
 
 .nav-dropdown-menu{
@@ -387,6 +390,12 @@ header{
     .nav-bar-link:hover{
         background-color: var(--white-color);
         color: var(--primary-color);
+        border-radius: 1rem;
+    }
+
+    .nav-bar-link.active{
+        background-color: var(--primary-color);
+        color: var(--white-color);
         border-radius: 1rem;
     }
 

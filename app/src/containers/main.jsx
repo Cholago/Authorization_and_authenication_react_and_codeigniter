@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import NavigationBar from './navigationBar'
 
 const mapStateToProps = state => ({
     userInfo: state.UserInfo
@@ -9,7 +8,6 @@ const mapStateToProps = state => ({
 function main({ userInfo, dispatch }) {
     return (
         <>
-            <NavigationBar />
             <h1 className="text-center">Logged in</h1>
         </>
     );

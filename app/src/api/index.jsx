@@ -32,7 +32,8 @@ export const LoginApi = (dispatch, data) => {
                 const userInfo = {
                     userLogged: true,
                     userId: data.user_id,
-                    userName: data.user_email,
+                    userName: data.user_name,
+                    userEmail: data.user_email,
                     teckenId: data.token_code,
                 }
                 dispatch(ActionCreator.setLoggedInUserData(userInfo));
