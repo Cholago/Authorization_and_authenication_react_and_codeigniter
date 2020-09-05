@@ -1,17 +1,17 @@
 import React from 'react';
 import Login from './auth/login'
 import Signup from './auth/signup'
-import IsLoggedIn from './auth/isLoggedIn'
 import Main from './containers/main'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import isLoggedIn from './auth/isLoggedIn';
 
 function App() {
   return (
     <React.Fragment>
       <Router>
         <Switch>
-          <Route path="/main" component={IsLoggedIn} />
-          <Route exact path="/" component={Main} />
+          <Route exact path="/" component={isLoggedIn} />
+          <Route path="/home" component={Main} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route render={() => <h1 className="text-center">Page not found</h1>} />
