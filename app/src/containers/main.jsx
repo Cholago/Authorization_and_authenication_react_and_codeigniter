@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 function main({ userInfo, dispatch }) {
     return (
         <>
-            <h1 className="text-center">Logged in</h1>
+            <h1 className="text-center">Welcome</h1>
         </>
     );
 }

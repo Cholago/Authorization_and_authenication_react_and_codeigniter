@@ -1,4 +1,4 @@
-import { SET_USER } from '../actions/types';
+import { SET_USER, UNSET_USER } from '../actions/types';
 let defaultState = {
     userLogged: false,
 }
@@ -6,6 +6,8 @@ let defaultState = {
 const UserInformation = (state = defaultState, action) => {
     switch (action.type) {
         case SET_USER:
+            return action.payload.user
+        case UNSET_USER:
             return action.payload.user
         default:
             return state

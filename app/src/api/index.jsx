@@ -41,7 +41,16 @@ export const LoginApi = (dispatch, data) => {
             }
         }
     ).catch(
-        error => console.log(error)
+        error => {
+            console.log(error)
+            dispatch(ActionCreator.setLoginBtnText('Login'));
+            dispatch(ActionCreator.setLoginDisabled(false));
+            dispatch(ActionCreator.setLoginError('Failed no internet connection. Try again later'));
+            //Reset error massage after 5 seconds
+            setTimeout(function () {
+                dispatch(ActionCreator.setLoginError(false));
+            }, 5000);
+        }
     );
 }
 
@@ -70,6 +79,16 @@ export const SignUpApi = (dispatch, data) => {
                 }, 7000);
             }
         }
-    ).catch(error => console.log(error));
+    ).catch(error => {
+        console.log(error)
+        dispatch(ActionCreator.setSignupBtnText('Signup'));
+        dispatch(ActionCreator.setSignupDisabled(true));
+        dispatch(ActionCreator.setSignupError('Failed no internet connection. Try again later'));
+        //Reset error massage after 5 seconds
+        setTimeout(function () {
+            dispatch(ActionCreator.setSignupError(false));
+        }, 5000);
+    }
+    );
 }
 

@@ -76,6 +76,26 @@ export const setLoggedInUserData = (user) => (
     }
 );
 
+//Set logged out user state
+export const setLoggedOutData = (user) => (
+    {
+        type: Actions.UNSET_USER,
+        payload: {
+            user
+        }
+    }
+);
+
+//Sign out user
+export const signOutUser = (value) => (
+    {
+        type: Actions.SIGN_OUT_USER,
+        payload: {
+            value
+        }
+    }
+);
+
 //sync user state
 export const syncUserLoginState = () => {
     return (dispatch) => {
@@ -105,5 +125,37 @@ export const syncUserLoginState = () => {
             .catch(error => console.log(error));
     };
 };
+
+//sync user state
+export const syncSignOutUser = () => {
+    return (dispatch) => {
+        dispatch(signOutUser('Signing out'));
+        console.log('sdsdsds')
+        return axios.get(ApiUrl.SIGN_OUT_URL, { withCredentials: true })
+            .then(res => {
+                console.log('Sign out user', res.data);
+                const data = res.data;
+                if (data.logout) {
+                    localStorage.clear();
+                    //logged out
+                    const userInfo = {
+                        userLogged: false,
+                    }
+                    dispatch(setLoggedOutData(userInfo));
+                    dispatch(signOutUser('Sign out'));
+
+                }
+            })
+            .catch(
+                error => {
+                    console.log(error)
+                    dispatch(signOutUser('Sign out'));
+                }
+            );
+    };
+
+};
+
+//sync sign out user
 
 

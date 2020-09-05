@@ -1,5 +1,7 @@
 //Redux action types
 export const SET_USER = 'SET_USER';
+export const SIGN_OUT_USER = 'SIGN_OUT_USER';
+export const UNSET_USER = 'UNSET_USER';
 //posts
 export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';

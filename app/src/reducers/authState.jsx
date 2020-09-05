@@ -7,6 +7,7 @@ let defaultState = {
     loginError: false,
     signupError: false,
     signupSuccess: false,
+    signOutBtnText: "Sign out",
 }
 
 const AuthPageState = (state = defaultState, action) => {
@@ -38,6 +39,10 @@ const AuthPageState = (state = defaultState, action) => {
         case Actions.SET_SIGNUP_SUCCESS:
             return Object.assign({}, state, {
                 signupSuccess: action.payload.value
+            })
+        case Actions.SIGN_OUT_USER:
+            return Object.assign({}, state, {
+                signOutBtnText: action.payload.value
             })
         default:
             return state
