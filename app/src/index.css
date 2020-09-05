@@ -12,12 +12,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 body{
-    margin: 0;
-    padding: 0;
+    margin: 0 !important; 
+    padding: 0 !important;
     background-color: #e4e3e3 !important;
     background-size: cover;
     background-position: top center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 ul{
@@ -29,14 +29,14 @@ a{
 }
 
 header{
-    position: sticky;
-    top: 0px;
-    background-color: var(--primary-color);
-    width: 100%;
-    z-index: 1000;
+    position: sticky !important;
+    top: 0px !important;
+    background-color: var(--primary-color) !important;
+    width: 100% !important;
+    z-index: 1000 !important;
 }
 
-.container{
+.nav-bar-container{
     max-width: 80rem;
     padding: 0 2rem;
     margin: 0 auto;
@@ -102,23 +102,23 @@ header{
 }
 
 .nav-bar-links > ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .nav-bar-link{
-    position: relative;
+    position: relative !important;
 }
 
 .nav-bar-link > a{
     line-height: 3rem;
-    color: var(--white-color);
+    color: var(--white-color) !important;
     padding: 0 .8rem;
     letter-spacing: 1px;
     font-size: .95rem;
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
     justify-content: space-between;
     transition: .5s;
 }
@@ -312,7 +312,7 @@ header{
     .nav-bar-links{
         flex: initial;
         width: 80%;
-        justify-content: center;
+        justify-content: center !important;
     }
 
     .nav-bar-links > ul{

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const NavigationBar = () => {
     return (
         <header>
-            <div className="container">
+            <div className="nav-bar-container">
                 <input type="checkbox" name="" id="check" />
 
                 <div className="logo-container">
