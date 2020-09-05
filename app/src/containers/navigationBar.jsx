@@ -9,7 +9,6 @@ const mapStateToProps = state => ({
 })
 
 const NavigationBar = ({ userInfo, authState, dispatch }) => {
-    console.log('Current', userInfo)
     return (
         <header>
             <div className="nav-bar-container">
