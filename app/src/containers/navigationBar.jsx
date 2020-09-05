@@ -1,28 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 const NavigationBar = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">
-            <Navbar.Brand href="#home">MyHome</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link href="#">Device</Nav.Link>
-                    <Nav.Link href="#">History</Nav.Link>
-                    <Nav.Link href="#">Users</Nav.Link>
-                </Nav>
-                <Nav>
-                    <NavDropdown title="Wilson Chola" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Profile</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Settings</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item>Logout</NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+        <header>
+            <div className="container">
+                <div className="logo-container">
+                    <b className="logo">MyHome</b>
+
+                </div>
+                <div className="nav-bar">
+                    <div className="nav-links">
+                        <ul>
+                            <li className="nav-bar-link"> <a href="#">Device</a> </li>
+                            <li className="nav-bar-link"> <a href="#">Users</a> </li>
+                            <li className="nav-bar-link"> <a href="#">Profile</a> </li>
+                            <li className="nav-bar-link"> <a href="#">History</a>
+                                <div className="dropdown-nav-bar-link">
+                                    <ul>
+                                        <li className="dropdown-nav-link"> <a href="#">Today</a> </li>
+                                        <li className="dropdown-nav-link"> <a href="#">Yesta</a> </li>
+                                        <li className="dropdown-nav-link"> <a href="#">Yello</a> </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="nav-links-btn">
+                        <a href="#" className="nav-btn transparent">Setings</a>
+                        <a href="#" className="nav-btn solid">Logout</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
     );
 }
 export default connect()(NavigationBar);

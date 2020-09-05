@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
     userInfo: state.UserInfo
 })
 const IsLoggedIn = ({ userInfo }) => {
-    console.log('Hello world', userInfo);
+    //console.log('Hello world', userInfo);
     if (userInfo.userLogged) {
         return <Redirect to='/home' />
     }
