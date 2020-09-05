@@ -127,7 +127,7 @@ function Signup({ pageState, userInfo, dispatch }) {
                             </Row>
                             <Row className="justify-content-md-center">
                                 <Col md="auto">
-                                    <button type="submit" class="btn-auth-page" disabled={pageState.signupDisabled}>{pageState.signupBtnText}</button>
+                                    <button type="submit" className="btn-auth-page" disabled={pageState.signupDisabled}>{pageState.signupBtnText}</button>
                                 </Col>
                             </Row>
 

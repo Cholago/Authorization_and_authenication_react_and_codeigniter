@@ -5,35 +5,54 @@ const NavigationBar = () => {
     return (
         <header>
             <div className="container">
+                <input type="checkbox" name="" id="check" />
+
                 <div className="logo-container">
                     <b className="logo">MyHome</b>
-
                 </div>
+
                 <div className="nav-bar">
-                    <div className="nav-links">
+                    <div className="nav-bar-links">
                         <ul>
-                            <li className="nav-bar-link"> <a href="#">Device</a> </li>
-                            <li className="nav-bar-link"> <a href="#">Users</a> </li>
-                            <li className="nav-bar-link"> <a href="#">Profile</a> </li>
-                            <li className="nav-bar-link"> <a href="#">History</a>
-                                <div className="dropdown-nav-bar-link">
+                            <li className="nav-bar-link" style={{ i: ".6s" }}>
+                                <a href="#">Device</a>
+                            </li>
+                            <li className="nav-bar-link" style={{ i: ".6s" }}>
+                                <a href="#">User</a>
+                            </li>
+                            <li className="nav-bar-link" style={{ i: ".6s" }}>
+                                <a href="#">Profile</a>
+                            </li>
+                            <li className="nav-bar-link" style={{ i: ".6s" }}>
+                                <a href="#">History</a>
+                                <div className="nav-dropdown-menu">
                                     <ul>
-                                        <li className="dropdown-nav-link"> <a href="#">Today</a> </li>
-                                        <li className="dropdown-nav-link"> <a href="#">Yesta</a> </li>
-                                        <li className="dropdown-nav-link"> <a href="#">Yello</a> </li>
+                                        <li className="nav-dropdown-link">
+                                            <a href="#">Today</a>
+                                        </li>
+                                        <li className="nav-dropdown-link">
+                                            <a href="#">Yesterday</a>
+                                        </li>
+                                        <li className="nav-dropdown-link">
+                                            <a href="#">Yellow</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
+                            <li className="nav-bar-link" style={{ i: "1.35s" }}>
+                                <a href="#">About</a>
+                            </li>
                         </ul>
                     </div>
-                    <div className="nav-links-btn">
-                        <a href="#" className="nav-btn transparent">Setings</a>
-                        <a href="#" className="nav-btn solid">Logout</a>
-                    </div>
 
+                    <div className="nav-bar-btn" style={{ i: "1.8s" }} >
+                        <a href="#" className="nav-btn transparent">Log in</a>
+                        <a href="#" className="nav-btn solid">Sign up</a>
+                    </div>
                 </div>
-                <div class="hamburger-menu-container">
-                    <div class="hamburger-menu">
+
+                <div className="hamburger-menu-container">
+                    <div className="hamburger-menu">
                         <div></div>
                     </div>
                 </div>
