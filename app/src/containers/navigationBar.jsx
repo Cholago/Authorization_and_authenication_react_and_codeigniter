@@ -32,7 +32,11 @@ const NavigationBar = () => {
                     </div>
 
                 </div>
-
+                <div class="hamburger-menu-container">
+                    <div class="hamburger-menu">
+                        <div></div>
+                    </div>
+                </div>
             </div>
         </header>
     );
