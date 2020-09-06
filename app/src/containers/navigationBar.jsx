@@ -1,7 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { syncSignOutUser } from '../actions'
+
+const LoggedInMenu = () => {
+    return (
+        <>
+            <li className="nav-bar-link active" style={{ '--i': ".6s" }}>
+                <NavLink to="/device" activeClassName="nav-bar-link-active" >Device</NavLink>
+            </li>
+            <li className="nav-bar-link" style={{ '--i': ".6s" }}>
+                <NavLink to="/users" activeClassName="nav-bar-link-active">Users</NavLink>
+            </li>
+            <li className="nav-bar-link" style={{ '--i': ".6s" }}>
+                <NavLink to="/profile" activeClassName="nav-bar-link-active">Profile</NavLink>
+            </li>
+            <li className="nav-bar-link" style={{ '--i': ".6s" }}>
+                <NavLink to="/history" activeClassName="nav-bar-link-active">History</NavLink>
+            </li>
+            <li className="nav-bar-link" style={{ '--i': "1.35s" }}>
+                <NavLink to="/about" activeClassName="nav-bar-link-active">About</NavLink>
+            </li>
+        </>
+
+    )
+}
+
+const LoggedOutMenu = () => {
+    return (
+        <>
+            <li className="nav-bar-link" style={{ '--i': ".6s" }}>
+                <NavLink to="/profile" activeClassName="nav-bar-link-active">Contact</NavLink>
+            </li>
+            <li className="nav-bar-link" style={{ '--i': "1.35s" }}>
+                <NavLink to="/about" activeClassName="nav-bar-link-active">About</NavLink>
+            </li>
+        </>
+
+    )
+}
 
 const mapStateToProps = state => ({
     userInfo: state.UserInfo,
@@ -22,48 +59,11 @@ const NavigationBar = ({ userInfo, authState, dispatch }) => {
                     <div className="nav-bar-links">
                         <ul>
                             {userInfo.userLogged &&
-                                <>
-                                    <li className="nav-bar-link active" style={{ '--i': ".6s" }}>
-                                        <Link to="/device">Device</Link>
-                                    </li>
-                                    <li className="nav-bar-link" style={{ '--i': ".6s" }}>
-                                        <Link to="/users">Users</Link>
-                                    </li>
-                                    <li className="nav-bar-link" style={{ '--i': ".6s" }}>
-                                        <Link to="/profile">Profile</Link>
-                                    </li>
-                                    <li className="nav-bar-link" style={{ '--i': ".6s" }}>
-                                        <Link to="/history">History</Link>
-                                        <div className="nav-dropdown-menu">
-                                            <ul>
-                                                <li className="nav-dropdown-link">
-                                                    <Link to="/profile">Log</Link>
-                                                </li>
-                                                <li className="nav-dropdown-link">
-                                                    <Link to="/images">Images</Link>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </>
+                                LoggedInMenu()
                             }
                             {!userInfo.userLogged &&
-                                <>
-                                    <li className="nav-bar-link active" style={{ '--i': ".6s" }}>
-                                        <Link to="/home">Home</Link>
-                                    </li>
-                                    <li className="nav-bar-link" style={{ '--i': ".6s" }}>
-                                        <Link to="/services">Services</Link>
-                                    </li>
-                                    <li className="nav-bar-link" style={{ '--i': ".6s" }}>
-                                        <Link to="/profile">Contact</Link>
-                                    </li>
-                                </>
+                                LoggedOutMenu()
                             }
-
-                            <li className="nav-bar-link" style={{ '--i': "1.35s" }}>
-                                <Link to="/about">About</Link>
-                            </li>
                         </ul>
                     </div>
 

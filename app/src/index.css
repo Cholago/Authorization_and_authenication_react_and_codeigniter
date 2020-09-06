@@ -34,6 +34,7 @@ header{
     background-color: var(--primary-color);
     width: 100%;
     z-index: 1000;
+    margin-bottom: 2rem;
 }
 
 .nav-bar-container{
@@ -118,7 +119,8 @@ header{
 .nav-bar-link > a{
     line-height: 3rem;
     color: var(--white-color);
-    padding: 0 .8rem;
+    padding: 0;
+    margin: 0 .5rem;
     letter-spacing: 1px;
     font-size: .95rem;
     display: flex;
@@ -136,9 +138,9 @@ header{
     transform: scale(1.3);
 }
 
-.nav-bar-link.active{
+.nav-bar-link-active{
     padding: 0 0px;
-    border-bottom: 1px solid var(--white-color);
+    border-bottom: 3px solid var(--white-color);
 }
 
 .nav-dropdown-menu{
@@ -393,7 +395,7 @@ header{
         border-radius: 1rem;
     }
 
-    .nav-bar-link.active{
+    .nav-bar-link-active{
         background-color: var(--primary-color);
         color: var(--white-color);
         border-radius: 1rem;
@@ -498,6 +500,32 @@ header{
 .disabled-btn {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.c-btn{
+    margin-top: 5px;
+    border: none;
+    outline: none;
+    height: auto;
+    background: var(--primary-color);
+    color: var(--white-color);
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 3px 20px;
+}
+
+.c-btn:hover{
+    margin-top: 5px;
+    border: 2px solid var(--primary-color);
+    outline: none;
+    cursor: pointer;
+    height: auto;
+    background: #fff;
+    color: var(--primary-color);
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 4px 30px;
+    transition: .5s;
 }
 
 /*--------------------*/

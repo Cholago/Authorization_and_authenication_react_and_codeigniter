@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import isLoggedIn from './auth/isLoggedIn';
 import NavigationBar from './containers/navigationBar'
 import MainFooter from './containers/pageFooter'
+import UserProfile from './containers/userProfile'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/home" component={Main} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
+          <Route path="/profile" component={UserProfile} />
           <Route render={() => <h1 className="text-center">Page not found</h1>} />
         </Switch>
         <MainFooter />

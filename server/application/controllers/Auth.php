@@ -140,7 +140,7 @@ class Auth extends CI_Controller {
         //log out
         $response["logout"] = "true";
         $this->session->sess_destroy();  // destroy all sessions and refresh 
-        header("Access-Control-Allow-Origin: http://localhost:3000");
+        header("Access-Control-Allow-Origin: http://192.168.43.62:3000");
         header("Access-Control-Allow-Credentials: true");
         header('Content-Type: application/json');
         echo json_encode($response);
