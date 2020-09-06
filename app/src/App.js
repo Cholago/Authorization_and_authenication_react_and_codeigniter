@@ -5,6 +5,7 @@ import Main from './containers/main'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import isLoggedIn from './auth/isLoggedIn';
 import NavigationBar from './containers/navigationBar'
+import MainFooter from './containers/pageFooter'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route render={() => <h1 className="text-center">Page not found</h1>} />
         </Switch>
+        <MainFooter />
       </Router>
     </React.Fragment>
   );

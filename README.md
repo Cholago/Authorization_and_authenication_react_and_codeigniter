@@ -6,3 +6,7 @@
     1. Redux
     2. Axios
 2. Codeigniter  Backend
+
+#### Project structure
+1. app folder
+2. server folder

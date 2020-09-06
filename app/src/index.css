@@ -499,3 +499,39 @@ header{
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/*--------------------*/
+/* FOOTER */
+/*--------------------*/
+#mu-footer {
+	background-color: var(--white-color);
+	display: inline;
+	float: left;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}
+
+.mu-footer-area{
+	display: inline;
+	float: left;
+	padding: 1rem 0;
+	text-align: center;
+	width: 100%;
+}
+
+.mu-copy-right {
+	margin-bottom: 0;
+}
+
+.mu-copy-right a {
+    color: var(--text-color);
+	font-weight: 600;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.mu-copy-right a:hover{
+    color: var(--primary-color);
+}
