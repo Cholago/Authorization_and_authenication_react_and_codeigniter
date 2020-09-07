@@ -30,7 +30,7 @@ const LoggedOutMenu = () => {
     return (
         <>
             <li className="nav-bar-link" style={{ '--i': ".6s" }}>
-                <NavLink to="/profile" activeClassName="nav-bar-link-active">Contact</NavLink>
+                <NavLink to="/contact" activeClassName="nav-bar-link-active">Contact</NavLink>
             </li>
             <li className="nav-bar-link" style={{ '--i': "1.35s" }}>
                 <NavLink to="/about" activeClassName="nav-bar-link-active">About</NavLink>
@@ -46,6 +46,7 @@ const mapStateToProps = state => ({
 })
 
 const NavigationBar = ({ userInfo, authState, dispatch }) => {
+    //console.log('User ', userInfo)
     return (
         <header>
             <div className="nav-bar-container">

@@ -10,3 +10,7 @@
 #### Project structure
 1. app folder
 2. server folder
+
+### Screenshot
+#### Screenshot
+![One](/screenshots/auth.gif)
